@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plin Plin!</title>
+
+    <!--link google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!--COMENTÁRIO TESTE-->
+
+    <!--link css-->
+    <link rel="stylesheet" href="assets/CSS/style.css">
+
+    <!--link Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- link htmx -->
+    <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.1/dist/htmx.js" integrity="sha384-gpIh5aLQ0qmX8kZdyhsd6jA24uKLkqIr1WAGtantR4KsS97l/NRBvh8/8OYGThAf" crossorigin="anonymous"></script>
+
+    <!-- link aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	
+	<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault(); // Evita o envio padrão do formulário
+
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    message: formData.get('message')
+                };
+
+                try {
+                    const response = await fetch('https://crab.codes/api/send-email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        // Handle success (e.g., show a success message)
+                        alert('Formulário enviado com sucesso!');
+                    } else {
+                        // Handle error
+                        alert('Erro ao enviar o formulário.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Erro ao enviar o formulário.');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header__principal">
+            <img class="img__1" src="assets/img/logoplin.svg" alt="Logo Ayza Digital" />
+        </div>
+    </header>
+    <main>
+        <section class="topo-do-site" id="secao1">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site">
+                        <h1>O QUE É <span>MACHINE LEARNING</span></h1>
+                        <p>Machine Learning é uma área da inteligência artificial que permite que sistemas aprendam e façam previsões ou decisões com base em dados. Em vez de serem programados explicitamente para executar uma tarefa, os algoritmos de machine learning utilizam dados para identificar padrões e ajustar seu comportamento automaticamente.
+                            <br><br> Aplicações comuns incluem recomendações de produtos, reconhecimento de voz, detecção de fraudes, diagnósticos médicos, e muito mais. O aprendizado pode ser supervisionado, com modelos treinados em dados rotulados, ou não supervisionado, onde os algoritmos buscam estruturar dados sem rótulos pré-definidos. Essa tecnologia está transformando diversos setores ao permitir soluções mais eficientes e personalizadas.
+                        </p>
+
+                        <!--<div class="btn-contato">
+                            <a href="https://wa.me/558197090571" target="_blank">
+                                <button>Entre em contato</button>
+                            </a>
+                        </div>-->
+                    </div><!-- txt-topo-site -->
+                    <div class="img-topo-site">
+                        <img src="assets/img/imgmainIA.svg" alt="devices">
+                    </div><!-- img-topo-site -->
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+
+        <section class="topo-do-site1" id="secao1">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site1">
+                        <h1>O QUE É <span>LLM</span></h1>
+                        <p>
+                            LLM, ou Large Language Model, é um tipo de modelo de inteligência artificial projetado para processar e gerar texto de forma semelhante à linguagem humana. Esses modelos são treinados em vastas quantidades de dados textuais e utilizam arquiteturas avançadas, como redes neurais transformadoras, para aprender padrões complexos de linguagem. Exemplos famosos incluem o GPT (Generative Pre-trained Transformer) da OpenAI e modelos similares de outras empresas e instituições de pesquisa.
+                        </p>
+                        <p>
+                            Os LLMs são capazes de realizar uma ampla gama de tarefas, como responder perguntas, redigir textos, traduzir idiomas, escrever códigos e até criar conteúdos criativos. Eles funcionam prevendo a próxima palavra em uma sequência com base no contexto fornecido, o que lhes permite gerar respostas coesas e contextualmente relevantes. No entanto, como os LLMs aprendem de grandes volumes de dados, podem herdar vieses ou limitações presentes nesses dados. O desenvolvimento e o uso responsável desses modelos são essenciais para maximizar seu potencial e minimizar possíveis riscos.
+                        </p>
+
+                        <!--<div class="btn-contato">
+                            <a href="https://wa.me/558197090571" target="_blank">
+                                <button>Entre em contato</button>
+                            </a>
+                        </div>-->
+                    </div><!-- txt-topo-site -->
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+
+        <section class="topo-do-site" id="secao1">
+            <div class="interface">
+                <div class="flex">
+                    
+                    <div class="txt-topo-site">
+                        <h1>O QUE É <span>PROGRESSÃO LINEAR</span></h1>
+                        <p>
+                            A "progressão linear" em Inteligência Artificial (IA) geralmente se refere ao conceito de regressão linear, uma técnica de aprendizado de máquina usada para modelar a relação entre variáveis independentes (entrada) e uma variável dependente (saída). É um método simples e amplamente utilizado para prever valores numéricos com base em um conjunto de dados.
+                        </p>
+                        <h3>Como funciona a Regressão Linear</h3>
+                        <p>
+                            A regressão linear ajusta uma linha reta (ou um hiperplano em casos multivariados) que minimiza a diferença entre os valores preditos pelo modelo e os valores reais dos dados. A equação dessa linha é representada por:
+<br>
+𝑦
+=
+𝑎
++
+𝑏
+⋅
+𝑥
+y=a+b⋅x
+<br>
+onde:
+<br>
+𝑦
+y é a variável dependente (resultado),
+<br>
+𝑥
+x é a variável independente (input),
+<br>
+𝑎
+a é o intercepto (valor de 
+𝑦
+y quando 
+𝑥
+=
+0
+x=0),
+<br>
+𝑏
+b é o coeficiente angular (mostra a inclinação da linha e a relação entre 
+𝑥
+x e 
+𝑦
+y).
+                        </p>
+                        
+
+                        <!--<div class="btn-contato">
+                            <a href="https://wa.me/558197090571" target="_blank">
+                                <button>Entre em contato</button>
+                            </a>
+                        </div>-->
+                        
+                    </div><!-- txt-topo-site -->
+                    <div class="img-topo-site">
+                        <img src="assets/img/roboimg.svg" alt="devices">
+                    </div><!-- img-topo-site -->
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+
+        <section class="topo-do-site1" id="secao1">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site1">
+                        <h1>PROBLEMATICA <span>APRESENTADA</span></h1>
+                        <p>
+                            A falta de moderação automática na ferramenta do Colaborativo da Globo impacta diretamente a segurança e a confiabilidade da plataforma, permitindo que conteúdos inadequados ou imprecisos sejam publicados sem controle imediato. Esse cenário aumenta o risco de exposição a informações inapropriadas e potencialmente prejudiciais, além de comprometer a experiência dos usuários, que buscam um ambiente confiável para interagir e compartilhar informações. A implementação de uma moderação automatizada seria uma medida essencial para garantir um ambiente mais seguro, alinhado com os padrões de qualidade e segurança esperados pelos usuários.
+                        </p>
+
+                        <!--<div class="btn-contato">
+                            <a href="https://wa.me/558197090571" target="_blank">
+                                <button>Entre em contato</button>
+                            </a>
+                        </div>-->
+                    </div><!-- txt-topo-site -->
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+
+        <section class="topo-do-site1" id="secao1">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site1">
+                        <h1>ESTIMATIVA DE CUSTO PARA IMPLEMENTAÇÃO DE UM MODELO DE LLM COM REGRESSÃO LINEAR <span>PARA CLASSIFICAÇÃO DE TEXTOS.</span></h1>
+                        <p>
+                            LLM, ou Large Language Model, é um tipo de modelo de inteligência artificial projetado para processar e gerar texto de forma semelhante à linguagem humana. Esses modelos são treinados em vastas quantidades de dados textuais e utilizam arquiteturas avançadas, como redes neurais transformadoras, para aprender padrões complexos de linguagem. Exemplos famosos incluem o GPT (Generative Pre-trained Transformer) da OpenAI e modelos similares de outras empresas e instituições de pesquisa.
+                        </p>
+                        <p>
+                            Os LLMs são capazes de realizar uma ampla gama de tarefas, como responder perguntas, redigir textos, traduzir idiomas, escrever códigos e até criar conteúdos criativos. Eles funcionam prevendo a próxima palavra em uma sequência com base no contexto fornecido, o que lhes permite gerar respostas coesas e contextualmente relevantes. No entanto, como os LLMs aprendem de grandes volumes de dados, podem herdar vieses ou limitações presentes nesses dados. O desenvolvimento e o uso responsável desses modelos são essenciais para maximizar seu potencial e minimizar possíveis riscos.
+                        </p>
+
+                    </div><!-- txt-topo-site -->
+                    <div class="img-topo-site">
+                        <img src="assets/img/imglucro.svg" alt="devices">
+                    </div><!-- img-topo-site -->
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+        
+        <section class="topo-do-site1" id="secao1">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site1">
+                        <h1>NOSSA<span>SOLUÇÃO!</span></h1>
+                        <p>
+                            Uma solução viável para classificar notícias como verdadeiras ou falsas com uma LLM é treinar um modelo pré-existente (como BERT ou RoBERTa) usando **progressão linear supervisionada**:
+ <br>
+1. **Treinamento Gradual**: O modelo é treinado em etapas, começando com textos simples e progredindo para textos mais complexos, ajustando os parâmetros conforme a complexidade aumenta.
+<br>
+2. **Rotulagem Contínua**: Usa uma base de dados de notícias rotuladas, atualizada regularmente, para adaptar o modelo a novos padrões de desinformação.
+<br>
+3. **Infraestrutura em Nuvem**: Utiliza serviços escaláveis para implementação e monitoramento, mantendo o modelo atualizado e eficiente.
+<br> 
+Esse método reduz o custo e o tempo de treinamento, tornando a moderação de notícias precisa e adaptativa.
+                        </p>
+                        
+
+                    </div><!-- txt-topo-site -->
+                    <div class="img-topo-site">
+                        <img src="/assets/img/MicrosoftTeams-image.png" alt="devices">
+                    </div><!-- img-topo-site -->
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+        
+    </main>
+    <footer>
+        <div class="interface">
+                <div class="flex">
+                    <div class="logo-footer">
+                        <img src="/assets/img/logoplin.svg" alt="Logo footer">
+                        <h6 class="cnpj">Desenvolvido com amor!</h6>
+                    </div><!-- logo-footer -->
+                    <div class="btn-social">
+                        <a href="https://linktr.ee/grupoplimplim" target="_blank"><button><i class="bi bi-linkedin" id="redes"></i></button></a>
+                    </div><!-- btn-social -->
+                </div> 
+
+        </div><!-- interface -->
+    </footer>
+
+    <script src="/website-master/assets/js/script.js"></script>
+</body>
+</html>
